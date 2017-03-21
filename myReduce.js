@@ -6,6 +6,7 @@ function myReduce(array, callback, initialValue) {
 //  CODE INSIDE HERE   //
 	let result;
 
+	// rare case of empty array and initialValue
 	if (initialValue && array.length === 0) {
   		console.log("(i === 0 && initialValue && array.length === 0)");
   		result = initialValue;
@@ -16,7 +17,7 @@ function myReduce(array, callback, initialValue) {
 
   		console.log('i: ' + i);
 
-	  	if (i === 0 && initialValue) {
+	  	if (i === 0 && initialValue) {//first iteration, given initial value
 	  		console.log('initialValue: ' + initialValue);
 	  		result = callback(initialValue, array[i], i, array);
 	  		console.log('first run' + result);
