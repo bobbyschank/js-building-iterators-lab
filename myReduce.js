@@ -12,30 +12,26 @@ function myReduce(array, callback, initialValue) {
   		return result;
   	}
 
-  for (let i = 0; i < array.length ; i++) {
+  	for (let i = 0; i < array.length ; i++) {
 
-  	console.log('i: ' + i);
+  		console.log('i: ' + i);
 
-  	if (i === 0 && initialValue) {
-  		console.log('initialValue: ' + initialValue);
-  		result = callback(initialValue, array[i], i, array);
-  		console.log('first run' + result);
-  	} else if (i === 0 && initialValue && array.length === 0) {
-  		console.log("(i === 0 && initialValue && array.length === 0)");
-  		result = initialValue;
-  	} else if (i === 0 && !initialValue) {
-  		i = 1;
-  		current = callback(array[0], array[i], i, array);
-  		result = current;
-  	} else {
-  		current = callback(result, array[i], i, array);
-  		result = current;
-  	}	
-  	console.log('result: ' + result);
-  }
-  return result;
+	  	if (i === 0 && initialValue) {
+	  		console.log('initialValue: ' + initialValue);
+	  		result = callback(initialValue, array[i], i, array);
+	  		console.log('first run' + result);
+	  	}
+	  	else if (i === 0 && !initialValue) {//first run, no initial value
+	  		result = callback(array[0], array[1], 1, array); 
+	  	}
+	  	else {
+	  		var current = callback(result, array[i], i, array);
+	  		result = current;
+	  	}	
+		console.log('result: ' + result);
+  	}
+  	return result;
 }
-
 
 
 /*

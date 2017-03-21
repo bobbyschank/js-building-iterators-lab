@@ -9,13 +9,13 @@ var myReduce = require('./myReduce');
 
 var numArray = [0,1,10,100,1000];
 
-var numbers = [];
+var numbers = [1,2,3,4];
 
 
 
 var sum = myReduce(numbers, function (a,b) {
 	return a + b;
-}, 234);
+}, 6);
 
 console.log('sum: ' + sum);
 
